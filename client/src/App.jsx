@@ -10,8 +10,7 @@ class App extends Component {
     response: '',
     name: '',
     skill: '',
-    responseToPost: '',
-    id: ''
+    responseToPost: ''
   };
 
   componentDidMount() {
