@@ -3,13 +3,15 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 
 import './App.css';
+import { isThisHour } from 'date-fns';
 
 class App extends Component {
   state = {
     response: '',
     name: '',
     skill: '',
-    responseToPost: ''
+    responseToPost: '',
+    id: ''
   };
 
   componentDidMount() {
@@ -23,7 +25,7 @@ class App extends Component {
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
-    alert(body.express);
+  
     return body;
   };
 
@@ -59,7 +61,7 @@ class App extends Component {
           </a>
         </header>
         <p>{this.state.response}</p>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={e => this.handleSubmit(e)}>
           <p>
             <strong>Name</strong>
           </p>
